@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavbarBrand, Navbar, NavItem, NavbarToggler, Collapse, Nav, Button, Container, Row, Col } from 'reactstrap';
+import { NavbarBrand, Navbar, NavItem, NavbarToggler, Collapse, Nav, Button, Container, Row, Col, Form, FormGroup, Input, Label } from 'reactstrap';
 import './App.css';
 
 class App extends Component {
@@ -34,7 +34,15 @@ class App extends Component {
         <Container>
           <Row>
             <Col xs="9"></Col>
-            <Col xs="3"></Col>
+            <Col xs="3" className="text-left">
+              <h4>Category</h4>
+              <Form>
+                <FormGroup>
+                  <Label for="category-title">Category title</Label>
+                  <Input type="text" name="category-title" id="category-title" placeholder="enter title" />
+                </FormGroup>
+              </Form>
+            </Col>
           </Row>
         </Container>
       </div>
