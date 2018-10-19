@@ -1,27 +1,42 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
-import logo from './logo.svg';
+import { NavbarBrand, Navbar, NavItem, NavbarToggler, Collapse, Nav, Button, Container, Row, Col } from 'reactstrap';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <Button color="danger">Danger!</Button>
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React 
-          </a>
-        </header>
+        <Navbar color="dark" light expand="md"> 
+          <NavbarBrand href="/" className="text-white"><b>Entom</b> ToDoApp</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <Button color="primary">Add</Button>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+
+        <Container>
+          <Row>
+            <Col xs="9"></Col>
+            <Col xs="3"></Col>
+          </Row>
+        </Container>
       </div>
     );
   }
